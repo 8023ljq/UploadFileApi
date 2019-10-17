@@ -134,8 +134,6 @@ namespace ImageServer.Controllers
             newImage.Save(newPath);
         }
 
-
-
         /// <summary>
         /// 添加图片水印
         /// </summary>
