@@ -64,7 +64,7 @@ namespace NewUploadFile.Common
         }
 
         /// <summary>
-        /// 添加文字水印(修改)
+        /// 添加文字水印
         /// </summary>
         /// <param name="sourcePath">原图片路径</param>
         /// <param name="newPath">新图片路径</param>
@@ -74,10 +74,10 @@ namespace NewUploadFile.Common
         /// <param name="externName">文件后缀名</param>
         public static void AddTextWatermark(string sourcePath, string newPath, string text, float fontSize, int opacity, string externName)
         {
-            //MemoryStream memoryStream = new MemoryStream(File.ReadAllBytes(sourcePath));
-            //Image images = Image.FromStream(memoryStream);
-            
-            Image images = Image.FromFile(sourcePath);
+            MemoryStream memoryStream = new MemoryStream(File.ReadAllBytes(sourcePath));
+            Image images = Image.FromStream(memoryStream);
+
+            //Image images = Image.FromFile(sourcePath);
 
             Bitmap bitmap = new Bitmap(images, images.Width, images.Height);
 
@@ -123,7 +123,104 @@ namespace NewUploadFile.Common
             newImage.Save(newPath);
         }
 
+        /// <summary>
+        /// 添加图片水印
+        /// </summary>
+        /// <param name="sourcePath">原图片路径</param>
+        /// <param name="newPath">新图片路径</param>
+        /// <param name="watermarkPath">水印图片地址</param>
+        /// <param name="opacity">文字透明度(0-255 值越大透明度越低)</param>
+        /// <param name="externName">文件后缀名</param>
+        public static void AddImgWatermark(string sourcePath, string newPath, string watermarkPath,  float opacity, string externName)
+        {
+            MemoryStream memoryStream = new MemoryStream(File.ReadAllBytes(sourcePath));
+            Image sourceImages = Image.FromStream(memoryStream);
+
+            MemoryStream watermarkStream = new MemoryStream(File.ReadAllBytes(watermarkPath));
+            Image watermarkImages = Image.FromStream(watermarkStream);
+
+            //Image sourceImages = Image.FromFile(sourcePath);
+
+            //Image watermarkImages = Image.FromFile(watermarkPath);
+
+            Bitmap bitmap = new Bitmap(sourceImages, sourceImages.Width, sourceImages.Height);
+
+            Graphics graphics = Graphics.FromImage(bitmap);
 
 
+            //下面定义一个矩形区域      
+            float rectWidth = watermarkImages.Width + 10;
+            float rectHeight = watermarkImages.Height + 10;
+
+            //声明矩形域
+            RectangleF textArea = new RectangleF((sourceImages.Width / 2) - rectWidth / 2, (sourceImages.Width / 2) - rectHeight / 2, rectWidth, rectHeight);
+
+            Bitmap w_bitmap = ChangeOpacity(watermarkImages, opacity);
+
+            graphics.DrawImage(w_bitmap, textArea);
+
+            MemoryStream ms = new MemoryStream();
+
+            //保存图片
+            switch (externName)
+            {
+                case "jpg":
+                    bitmap.Save(ms, ImageFormat.Jpeg);
+                    break;
+                case "gif":
+                    bitmap.Save(ms, ImageFormat.Gif);
+                    break;
+                case "png":
+                    bitmap.Save(ms, ImageFormat.Png);
+                    break;
+                default:
+                    bitmap.Save(ms, ImageFormat.Jpeg);
+                    break;
+            }
+
+            Image newImage = Image.FromStream(ms);
+
+            graphics.Dispose();
+
+            bitmap.Dispose();
+
+            newImage.Save(newPath);
+        }
+
+        /// <summary>
+        /// 改变图片的透明度
+        /// </summary>
+        /// <param name="img">图片</param>
+        /// <param name="opacityvalue">透明度</param>
+        /// <returns></returns>
+        public static Bitmap ChangeOpacity(Image img, float opacityvalue)
+        {
+
+            float[][] nArray ={ new float[] {1, 0, 0, 0, 0},
+
+                                new float[] {0, 1, 0, 0, 0},
+
+                                new float[] {0, 0, 1, 0, 0},
+
+                                new float[] {0, 0, 0, opacityvalue, 0},
+
+                                new float[] {0, 0, 0, 0, 1}};
+
+            ColorMatrix matrix = new ColorMatrix(nArray);
+
+            ImageAttributes attributes = new ImageAttributes();
+
+            attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+            Image srcImage = img;
+
+            Bitmap resultImage = new Bitmap(srcImage.Width, srcImage.Height);
+
+            Graphics g = Graphics.FromImage(resultImage);
+
+            g.DrawImage(srcImage, new Rectangle(0, 0, srcImage.Width, srcImage.Height), 0, 0, srcImage.Width, srcImage.Height, GraphicsUnit.Pixel, attributes);
+
+            return resultImage;
+        }
     }
 }
