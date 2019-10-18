@@ -75,10 +75,12 @@ namespace NewUploadFile.Controllers
                 if (SuffixName != "zip")
                 {
                     ImageProcessMethod.MakeThumbnail(NewFilePath + "." + SuffixName, NewFilePath + "_small.jpeg", 150, 80);
-                    ImageProcessMethod.AddTextWatermark(NewFilePath + "." + SuffixName, NewFilePath + "_textseal.jpeg", "版权专用", 14.0f, 120, SuffixName);
+                    //ImageProcessMethod.AddTextWatermark(NewFilePath + "." + SuffixName, NewFilePath + "_textseal.jpeg", "版权专用", 14.0f, 120, SuffixName);
+                    ImageProcessMethod processMethod = new ImageProcessMethod();
+                    bool bo = processMethod.AddTextToImg(NewFilePath + "." + SuffixName, NewFilePath + "_textseal.jpeg", "版权专用", 5, 0, 95, 100, -45, out string error);
 
-                    string watermarkImgPath = context.Server.MapPath(string.Format("~/Img/jpg/watermarkImg.png"));
-                    ImageProcessMethod.AddImgWatermark(NewFilePath + "." + SuffixName, NewFilePath + "_imgseal.jpeg", watermarkImgPath, 120, SuffixName);
+                    //string watermarkImgPath = context.Server.MapPath(string.Format("~/Img/jpg/watermarkImg.png"));
+                    //ImageProcessMethod.AddImgWatermark(NewFilePath + "." + SuffixName, NewFilePath + "_imgseal.jpeg", watermarkImgPath, 120, SuffixName);
                 }
 
                 //string uploadfileurl = System.Configuration.ConfigurationManager.AppSettings.Get("ServerImgaes");

@@ -164,10 +164,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="img\jpg\20181117\2018111709424321225790.jpg" />
-    <Content Include="img\jpg\20181117\2018111709440289492753.jpg" />
-    <Content Include="img\jpg\20181117\2018111709440289492753.jpg_small.jpeg" />
-    <Content Include="img\jpg\20181117\tz.png" />
+    <Content Include="img\jpg\355844-1P40Z4203685.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
