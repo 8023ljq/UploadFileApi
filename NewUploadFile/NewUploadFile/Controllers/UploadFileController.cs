@@ -15,7 +15,7 @@ namespace NewUploadFile.Controllers
     public class UploadFileController : ApiController
     {
         [HttpPost]
-        [Route("NewUploadFile")]
+        [Route("newuploadfile")]
         public IHttpActionResult NewUploadFile()
         {
             ResultMsg result = new ResultMsg();
