@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2019 17:38:14</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/11/2019 09:00:08</publishTime>
+      <publishTime>12/11/2019 17:59:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/11/2019 09:00:08</publishTime>
+      <publishTime>12/11/2019 17:59:39</publishTime>
     </File>
     <File Include="bin/ImageServer.dll">
-      <publishTime>12/11/2019 09:00:02</publishTime>
+      <publishTime>12/11/2019 17:59:33</publishTime>
     </File>
     <File Include="bin/ImageServer.pdb">
-      <publishTime>12/11/2019 09:00:02</publishTime>
+      <publishTime>12/11/2019 17:59:33</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>10/18/2019 17:38:14</publishTime>
@@ -142,13 +142,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2019 17:38:14</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>10/18/2019 17:38:14</publishTime>
+      <publishTime>11/28/2018 13:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>11/28/2018 12:58:44</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>10/18/2019 17:38:14</publishTime>
     </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>11/28/2018 13:01:26</publishTime>
+    </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>10/18/2019 17:38:14</publishTime>
+      <publishTime>11/28/2018 13:01:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>10/18/2019 17:38:14</publishTime>
@@ -193,10 +199,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/23/2019 13:45:09</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/11/2019 09:00:03</publishTime>
+      <publishTime>12/11/2019 17:59:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2019 14:05:08</publishTime>
+      <publishTime>12/11/2019 17:59:33</publishTime>
     </File>
   </ItemGroup>
 </Project>
