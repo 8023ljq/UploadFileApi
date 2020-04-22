@@ -129,6 +129,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\ConfigValue.cs" />
     <Compile Include="Common\ImageProcessMethod.cs" />
+    <Compile Include="Common\ImgModel.cs" />
+    <Compile Include="Common\ReturnHelpMethod.cs" />
     <Compile Include="Common\WriteLog.cs" />
     <Compile Include="Controllers\UploadFileController.cs" />
     <Compile Include="Global.asax.cs">

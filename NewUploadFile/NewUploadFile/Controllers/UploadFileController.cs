@@ -89,7 +89,11 @@ namespace NewUploadFile.Controllers
                 result.ResultCode = 1;
                 result.ResultMsgs = "上传成功";
                 result.ResultData = retAddr;
-                return Ok(result);
+
+                ImgModel imgModel = new ImgModel();
+                imgModel.ImgUrl = retAddr;
+
+                return Ok(ReturnHelpMethod.ReturnSuccess(613, new { data = imgModel }));
             }
             catch (Exception ex)
             {
