@@ -93,7 +93,7 @@ namespace NewUploadFile.Controllers
                 ImgModel imgModel = new ImgModel();
                 imgModel.ImgUrl = retAddr;
 
-                return Ok(ReturnHelpMethod.ReturnSuccess(200, imgModel.ImgUrl, SuffixName));
+                return Ok(ReturnHelpMethod.ReturnSuccess(200, new { ImgUrl = imgModel.ImgUrl, FileName = fileImg.FileName, Suffix = fileImg.FileName.Split('.')[1], Time = DateTime.Now }));
             }
             catch (Exception ex)
             {
