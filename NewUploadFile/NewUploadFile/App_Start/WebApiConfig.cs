@@ -10,14 +10,14 @@ namespace NewUploadFile
         {
             // Web API 配置和服务
             //跨域配置
-            var allowOrigins = ConfigurationManager.AppSettings["cors_allowOrigins"];
-            var allowHeaders = ConfigurationManager.AppSettings["cors_allowHeaders"];
-            var allowMethods = ConfigurationManager.AppSettings["cors_allowMethods"];
-            var globalCors = new EnableCorsAttribute(allowOrigins, allowHeaders, allowMethods)
-            {
-                SupportsCredentials = true,
-            };
-            config.EnableCors(globalCors);
+            //var allowOrigins = ConfigurationManager.AppSettings["cors_allowOrigins"];
+            //var allowHeaders = ConfigurationManager.AppSettings["cors_allowHeaders"];
+            //var allowMethods = ConfigurationManager.AppSettings["cors_allowMethods"];
+            //var globalCors = new EnableCorsAttribute(allowOrigins, allowHeaders, allowMethods)
+            //{
+            //    SupportsCredentials = true,
+            //};
+            //config.EnableCors(globalCors);
 
 
             // Web API 路由
